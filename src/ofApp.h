@@ -1,6 +1,12 @@
 #pragma once
 
 #include "ofMain.h"
+#include "particle.h"
+#include "ofxGui.h"
+#include "ofxOpenCv.h"
+
+#define _SCL_SECURE_NO_WARNINGS
+
 
 class ofApp : public ofBaseApp{
 
@@ -21,4 +27,23 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+		vector<particle>p;
+
+		ofxPanel gui;
+		ofxFloatSlider overallSpeed;
+		ofxFloatSlider noiseAmount;
+		ofxFloatSlider trail;
+
+		ofVideoGrabber vidGrabber;
+
+		ofxCvColorImage colorImg;
+		ofxCvGrayscaleImage grayImg;
+		ofxCvGrayscaleImage grayBg;
+		ofxCvGrayscaleImage grayDiff;
+
+		ofxCvContourFinder contourFinder;
+
+		ofxIntSlider threshold;
+		ofxToggle bLearnBackground;
+
 };
